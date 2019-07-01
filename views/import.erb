@@ -1,0 +1,14 @@
+<% @import.each_with_index do |recipe, index| %>
+<div>Recipe Name: <%= recipe.name %></div>
+<div>Description: <%= recipe.description %></div>
+<div>Prep time: <%= recipe.prep_time %></div>
+<div>Difficulty: <%= recipe.difficulty %></div>
+<form action="/recipes" method="post">
+  <input type="submit" value="Import" />
+  <textarea hidden cols="20" name="name" rows="5"><%= "#{recipe.name}" %></textarea><br />
+  <textarea hidden cols="20" name="description" rows="5"><%= "#{recipe.description}" %></textarea><br />
+  <textarea hidden cols="20" name="prep_time" rows="5"><%= "#{recipe.prep_time}" %></textarea><br />
+  <textarea hidden cols="20" name="difficulty" rows="5"><%= "#{recipe.difficulty}" %></textarea><br />
+  <textarea hidden cols="20" name="index" rows="5"><%= "#{index}" %></textarea><br />
+</form>
+<% end %>

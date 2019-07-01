@@ -1,0 +1,28 @@
+
+<h1>RECIPES LIST</h1>
+
+<form action="/import" method="post">
+    Search an ingredient: <input name="ingredient" type="text" /> <input type="submit" value="Search" />
+</form>
+
+<% @cookbook.each_with_index do |recipe, index| %>
+<hr />
+<ul>
+  <div><strong>Recipe Name:</strong> <%= recipe.name %></div>
+  <div><strong>Decription:</strong> <%= recipe.description %></div>
+  <div><strong>Prep time:</strong> <%= recipe.prep_time %></div>
+  <div><strong>Difficulty:</strong> <%= recipe.difficulty %></div>
+</ul>
+<form action="/delete" method="post">
+  <input type="submit" value="Delete" />
+  <textarea hidden cols="20" name="index" rows="5"><%= "#{index}" %></textarea><br />
+</form>
+<% end %>
+
+<a href='/new'>Create a new recipe</a>
+<!-- <form method="POST" action="/recipe">
+  <p>Recipe name: <input type="text"></p>
+  <p>Description: <input type="text"></p>
+  <input type="submit">
+</form> -->
+
